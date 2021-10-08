@@ -47,7 +47,9 @@ view(slab)
 ```
 
 ## PDOS
-Based on the [cclib](https://github.com/cclib/cclib) library and projected DOS code of [GaussSum](https://github.com/gausssum/gausssum).
+Based on the [cclib](https://github.com/cclib/cclib) library and projected DOS code of [GaussSum](https://github.com/gausssum/gausssum). 
+
+When used as a standalone program, it computes projected DOS (PDOS) onto elements (default) or user-specified groups in a file called `groups.txt` in the same directory. Computing the PDOS requires the overlap matrix and coefficient matrix to be present in output file, if missing only total DOS is computed.  
 
 Usage:
 
