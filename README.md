@@ -51,6 +51,8 @@ Based on the [cclib](https://github.com/cclib/cclib) library and projected DOS c
 
 When used as a standalone program, it computes projected DOS (PDOS) onto elements (default) or user-specified groups in a file called `groups.txt` in the same directory. Computing the PDOS requires the overlap matrix and coefficient matrix to be present in output file, if missing only total DOS is computed.  
 
+What makes this program different from GaussSum is that in addition to computing the PDOS, it also convolves the PDOS with photoionization cross sections (Al ka, He II, and He I) to generate simulated photoemission spectra. 
+
 Usage:
 
 ```
