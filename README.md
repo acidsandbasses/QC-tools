@@ -1,6 +1,6 @@
 # qctools
 
-Set of python scripts for further post-processing of quantum chemistry output files. Based on the [cclib](https://github.com/cclib/cclib) library and projected DOS code of [GaussSum](https://github.com/gausssum/gausssum).
+Set of python scripts for further post-processing of quantum chemistry output files. 
 
 ## General fcc100 Surface in ASE
 
@@ -44,4 +44,30 @@ add_adsorbate(slab, molecule_ASE, h, 'ontop')
 
 # take a look
 view(slab)
+```
+
+## PDOS
+Based on the [cclib](https://github.com/cclib/cclib) library and projected DOS code of [GaussSum](https://github.com/gausssum/gausssum).
+
+Usage:
+
+```
+pdos.py takes 4 positional arguments:
+    1) path to output file 
+    2) initial energy (eV) to compute DOS spectrum
+    3) final energy (eV) 
+    4) fwhm (eV) for gaussian broadening
+    5) (optional) ad-hoc fwhm scaling factor (see source code):
+        fwhm(E) = fwhm + c*(E-E_HOMO)
+
+Specify groups in optional groups.txt in same directory as output file
+All atoms must be present exactly once in groups.txt 
+
+Example (20 atoms total):
+
+atoms 
+group1
+1-10,11,12,15-19 
+group2 
+13,14,20
 ```
