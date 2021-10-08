@@ -132,7 +132,7 @@ class XYZ():
 					# Actions for current line
 					if cnt>2:
 						asym = line.split()[0]
-						acoords = np.array(line.split()[1:],dtype=float)
+						acoords = np.array(line.split()[1:4],dtype=float)
 						mol_xyz.append([asym, acoords])
 					line = xyzfile.readline()
 					cnt+=1
@@ -154,7 +154,7 @@ class XYZ():
 		self.translate(v = (-1)*self.get_center() + new_origin)
 
 	
-	def orient_xy(self):
+	def orient_xy(self, save_intermediate_files = False):
 		"""
 		1) shift molecule so center is at 0
 		2) compute mean square plane (msp)
@@ -163,7 +163,8 @@ class XYZ():
 
 		# 1) 
 		self.shift_origin()
-		self.write_xyz_file(self.fname.split(".")[-0]+"-shifted.xyz")
+		if save_intermediate_files:
+			self.write_xyz_file(self.fname.split(".")[-0]+"-shifted.xyz")
 
 		# 2)
 		Nv = self.mean_plane_normal(self.coords)
@@ -175,7 +176,8 @@ class XYZ():
 		# Rotate about y axis so normal plane is xy plane
 		self.rotate("x", (-1)*theta)
 
-		self.write_xyz_file(self.fname.split(".")[-0]+"-rotated.xyz")
+		if save_intermediate_files:
+			self.write_xyz_file(self.fname.split(".")[-0]+"-rotated.xyz")
 
 
 	def __init__(self, filepath=None):
