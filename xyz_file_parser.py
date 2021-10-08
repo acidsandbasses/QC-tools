@@ -179,6 +179,10 @@ class XYZ():
 		if save_intermediate_files:
 			self.write_xyz_file(self.fname.split(".")[-0]+"-rotated.xyz")
 
+	def split_symbols_positions(self):
+		symbols = [x[0] for x in self.coords]
+		positions = [x[1] for x in self.coords]
+		return symbols, positions
 
 	def __init__(self, filepath=None):
 		# Initial Coordinates:
